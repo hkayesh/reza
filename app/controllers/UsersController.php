@@ -11,4 +11,10 @@ class UsersController extends BaseController {
     public function getLogin() {
         return View::make('users.login');
     }
+
+    public function getAdd() {
+        $this->layout->title = 'Add user';
+        $this->layout->header = 'Add user';
+        $this->layout->content = View::make('users.add');
+    }
 }
