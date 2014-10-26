@@ -9,9 +9,7 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>
-        @section('title')
-        Dashboard
-        @show
+        {{ $title }}
     </title>
 
     <!-- Bootstrap core CSS -->
@@ -75,10 +73,10 @@
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">{{ $header }}</h1>
             {{ $content }}
         </div>
     </div>
-
 </div>
 
 <!-- Bootstrap core JavaScript

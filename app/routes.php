@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('layouts/test');
+Route::get('/', function () {
+    return View::make('layouts/test');
 });
 
 Route::controller('users', 'UsersController');
