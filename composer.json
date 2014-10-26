@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*"
+        , "imsky/holder": "*.*"
 	},
 	"autoload": {
 		"classmap": [
