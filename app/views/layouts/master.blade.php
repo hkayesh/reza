@@ -56,9 +56,9 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Dashboard</a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Analytics</a></li>
+                <li class="{{ Request::path() == 'user/dashboard'  ? 'active' : '' }}"><a href="{{ URL::to('user/dashboard') }}">Dashboard</a></li>
+                <li class="{{ Request::path() == 'user/index' ? 'active' : '' }}"><a href="{{ URL::to('user/index') }}">Show Users</a></li>
+                <li class="{{ Request::path() == 'user/add' ? 'active' : '' }}"><a href="{{ URL::to('user/add') }}">Add User</a></li>
                 <li><a href="#">Export</a></li>
             </ul>
             <ul class="nav nav-sidebar">

@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::controller('user', 'UserController');
+Route::get('user/edit/{id}', 'UserController@getEdit');
 //Route::resource('user', 'UserController');

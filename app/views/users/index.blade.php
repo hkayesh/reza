@@ -11,18 +11,20 @@
         </thead>
         <tbody>
         @foreach ($users as $user)
-        <tr>
-            <td>{{ $user->id }}</td>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->user_type_id }}</td>
-            <td>{{ $user->mobile_number1 }}</td>
-            @if ($user->is_active == 1)
-                <td>Active</td>
-            @else
-                <td>Inactive</td>
-            @endif
+            <tr>
+                <td>{{ $user->id }}</td>
+                </a>
+                <td>
+                    <a href="edit/{{ $user->id }}">{{ $user->name }}</a></td>
+                <td>{{ $user->user_type_id }}</td>
+                <td>{{ $user->mobile_number1 }}</td>
+                @if ($user->is_active == 1)
+                    <td>Active</td>
+                @else
+                    <td>Inactive</td>
+                @endif
 
-        </tr>
+            </tr>
         @endforeach
         </tbody>
     </table>
