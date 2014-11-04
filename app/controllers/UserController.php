@@ -4,7 +4,12 @@ class UserController extends BaseController {
     protected $layout = "layouts.master";
 
     public function getIndex() {
-        $users = User::all();
+//        $users = User::all();
+        $users = DB::table('users')
+            ->rightJoin('user_types', 'users.user_type_id', '=', 'user_types.id')
+            ->select('users.id', 'users.name', 'user_types.id as user_type_id', 'user_types.name as user_type', 'users.mobile_number1', 'users.is_active')
+            ->orderBy('user_type_id')
+            ->get();
         $this->layout->title = 'Show users';
         $this->layout->header = 'Users';
         $this->layout->content = View::make('users.index')->with('users', $users);
@@ -70,7 +75,6 @@ class UserController extends BaseController {
         $this->layout->content = View::make('users/edit', array(
             'user' => $user
             , 'userTypes' => $userTypes
-            , 'currentUserType' => $currentUserType
         ));
     }
 

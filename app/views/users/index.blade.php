@@ -16,7 +16,7 @@
                 </a>
                 <td>
                     <a href="edit/{{ $user->id }}">{{ $user->name }}</a></td>
-                <td>{{ $user->user_type_id }}</td>
+                <td>{{ $user->user_type }}</td>
                 <td>{{ $user->mobile_number1 }}</td>
                 @if ($user->is_active == 1)
                     <td>Active</td>

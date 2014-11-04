@@ -20,7 +20,7 @@
             <div class="col-md-3">
                 <select id="user_type" name="user_type" class="form-control">
                     @foreach ($userTypes as $userType)
-                    <option value="{{ $userType->id }}">{{ $userType->name }}</option>
+                    <option @if($user->user_type_id == $userType->id) selected="selected" @endif value="{{ $userType->id }}">{{ $userType->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -93,8 +93,8 @@
             <label class="col-md-4 control-label" for="status">Status</label>
             <div class="col-md-3">
                 <select id="status" name="status" class="form-control">
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option @if($user->is_active == 1) selected="selected" @endif value="1">Active</option>
+                    <option @if($user->is_active == 0) selected="selected" @endif value="0">Inactive</option>
                 </select>
             </div>
         </div>
