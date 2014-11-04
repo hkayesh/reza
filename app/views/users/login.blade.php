@@ -19,11 +19,14 @@
 <body>
 
 <div class="container">
+    @if(Session::has('message'))
+    <p class="alert">{{ Session::get('message') }}</p>
+    @endif
 
-    <form class="form-signin" role="form">
+    <form class="form-signin" role="form" method="post" action="login">
         <h2 class="form-signin-heading">Please login</h2>
-        <input type="username" class="form-control" placeholder="Username" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input type="text" name="mobile_number1" class="form-control" placeholder="Mobile Number" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
         <label class="checkbox">
             <input type="checkbox" value="remember-me"> Remember me
         </label>

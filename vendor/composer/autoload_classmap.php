@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddRememberTokenColumnToUsersTable' => $baseDir . '/app/database/migrations/2014_11_04_175454_add_remember_token_column_to_users_table.php',
     'Assetic\\AssetManager' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/AssetManager.php',
     'Assetic\\AssetWriter' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/AssetWriter.php',
     'Assetic\\Asset\\AssetCache' => $vendorDir . '/kriswallsmith/assetic/src/Assetic/Asset/AssetCache.php',
@@ -1679,7 +1680,8 @@ return array(
     'System_SSH_Agent_Identity' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'User' => $baseDir . '/app/models/User.php',
-    'UsersController' => $baseDir . '/app/controllers/UsersController.php',
+    'UserController' => $baseDir . '/app/controllers/UserController.php',
+    'UserType' => $baseDir . '/app/models/UserType.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Formatter' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Formatter.php',
     'Whoops\\Exception\\Frame' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Frame.php',

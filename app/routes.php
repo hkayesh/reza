@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return View::make('layouts/test');
+    return View::make('hello');
 });
 
 Route::controller('user', 'UserController');

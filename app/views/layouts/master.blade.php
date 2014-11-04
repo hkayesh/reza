@@ -40,8 +40,12 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
                 <li><a href="#">Profile</a></li>
+                @if(!Auth::check())
+                <li><a href="{{ URL::to('user/login') }}">Login</a></li>
+                @else
+                <li><a href="{{ URL::to('user/logout') }}">Logout</a></li>
+                @endif
                 <li><a href="#">Help</a></li>
             </ul>
             <form class="navbar-form navbar-right">

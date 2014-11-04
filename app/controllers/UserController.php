@@ -3,8 +3,13 @@
 class UserController extends BaseController {
     protected $layout = "layouts.master";
 
+    public function __construct() {
+//        $this->beforeFilter('csrf', array('on'=>'post'));
+        $this->beforeFilter('guest', array('only'=>'getLogin'));
+        $this->beforeFilter('auth', array('except'=>array('getLogin', 'postLogin')));
+    }
+
     public function getIndex() {
-//        $users = User::all();
         $users = DB::table('users')
             ->rightJoin('user_types', 'users.user_type_id', '=', 'user_types.id')
             ->select('users.id', 'users.name', 'user_types.id as user_type_id', 'user_types.name as user_type', 'users.mobile_number1', 'users.is_active')
@@ -55,6 +60,23 @@ class UserController extends BaseController {
 
     public function getLogin() {
         return View::make('users.login');
+    }
+
+    public function postLogin() {
+        if(Auth::attempt(array('mobile_number1' => Input::get('mobile_number1'), 'password' => Input::get('password')))) {
+            return Redirect::to('user/dashboard')
+                ->with('message', 'You are now logged in!');
+        }
+        else {
+            return Redirect::to('user/login')
+                ->with('message', 'Your username/password combination was incorrect')
+                ->withInput();
+        }
+    }
+
+    public function getLogout() {
+        Auth::logout();
+        return Redirect::to('user/login')->with('message', 'Your are now logged out!');
     }
 
     public function getAdd() {
